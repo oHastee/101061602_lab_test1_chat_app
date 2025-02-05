@@ -1,0 +1,82 @@
+/*
+  Color Palette Definitions:
+  - Primary Color: Dark Purple (#493D9E) - used for main headings, primary buttons, etc.
+  - Secondary Color: Light Purple (#B2A5FF) - used for secondary elements and buttons.
+  - Background Color: Very Light Purple (#DAD2FF) - used as the background for sections/pages.
+  - Accent Color: Yellowish (#FFF2AF) - used to highlight key information or as an accent.
+*/
+
+/* Define color variables in the :root so they can be used globally */
+:root {
+    --primary-color:   #493D9E;  /* Primary Color */
+    --secondary-color: #B2A5FF;  /* Secondary Color */
+    --background-color:#DAD2FF;  /* Background Color */
+    --accent-color:    #FFF2AF;  /* Accent Color */
+}
+
+/* Basic styling applying the custom color scheme */
+
+/* Set the overall background and default text color */
+body {
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Example of a header styling */
+header {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+}
+
+/* Primary button using the primary color */
+.btn-primary {
+    background-color: var(--primary-color);
+    border: none;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Secondary button using the secondary color */
+.btn-secondary {
+    background-color: var(--secondary-color);
+    border: none;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Accent styling, for example on highlighted text */
+.accent {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+/* Input focus styling using the primary color */
+input:focus, textarea:focus, select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px var(--primary-color);
+    outline: none;
+}
+
+/* Additional utility classes can use the colors as needed */
+.bg-primary {
+    background-color: var(--primary-color) !important;
+    color: #fff;
+}
+
+.bg-secondary {
+    background-color: var(--secondary-color) !important;
+    color: #fff;
+}
+
+.text-accent {
+    color: var(--accent-color) !important;
+}
