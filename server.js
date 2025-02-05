@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const http = require('http');
 const { Server } = require('socket.io');
@@ -9,16 +10,17 @@ const io = new Server(server, { cors: { origin: '*' } });
 
 // Import models
 const GroupMessage = require('./models/GroupMessage');
-const PrivateMessage = require('./models/PrivateMessage');
+// If needed later add default PM
+//const PrivateMessage = require('./models/PrivateMessage');
 
 app.use(cors());
 app.use(express.json());
 app.use(express.static('public'));
 
-// Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/chat_app', { useNewUrlParser: true, useUnifiedTopology: true })
+// Connect to MongoDB Atlas using the connection string from .env
+mongoose.connect(process.env.MONGODB_URI_REMOTE, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
-        console.log('Connected to MongoDB');
+        console.log('Connected to MongoDB Atlas');
 
         // Check if the GroupMessage collection is empty and insert a sample message if so.
         GroupMessage.estimatedDocumentCount((err, count) => {
@@ -36,7 +38,9 @@ mongoose.connect('mongodb://localhost:27017/chat_app', { useNewUrlParser: true, 
     })
     .catch(err => console.error(err));
 
-server.listen(3000, () => console.log('Server running on port 3000'));
+// Use PORT from environment variables or default to 3000
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 // Socket.io handling for room-based chat
 io.on('connection', (socket) => {
