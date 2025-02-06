@@ -54,7 +54,7 @@
       contentType: 'application/json',
       success: function(response) {
         $('#message').html('<div class="alert alert-success">' + response.message + '</div>');
-        // Redirect to login page after 2 seconds (to the /login route)
+        // Redirect to the login page after 2 seconds
         setTimeout(function() {
           window.location.href = '/login';
         }, 2000);
