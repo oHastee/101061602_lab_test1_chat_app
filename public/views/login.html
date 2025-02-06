@@ -56,7 +56,7 @@
         success: function(data) {
           // Save the username in localStorage for session management
           localStorage.setItem('username', data.username);
-          // Redirect to the chat page (to the /chat route)
+          // Redirect to the chat page
           window.location.href = '/chat';
         },
         error: function(xhr) {
