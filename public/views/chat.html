@@ -10,9 +10,12 @@
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-<!-- Room Selection Section -->
+<!-- Public Room Selection Section with inline Logout -->
 <div id="roomSelection" class="container mt-5">
-  <h2>Select a Room</h2>
+  <div class="d-flex justify-content-between align-items-center">
+    <h2>Select a Room</h2>
+    <button id="logoutBtn" class="btn btn-danger">Logout</button>
+  </div>
   <div class="list-group">
     <button class="list-group-item list-group-item-action roomBtn" data-room="devops">DevOps</button>
     <button class="list-group-item list-group-item-action roomBtn" data-room="cloud computing">Cloud Computing</button>
@@ -22,13 +25,20 @@
   </div>
 </div>
 
+<!-- Private Conversations Section -->
+<div id="privateSelection" class="container mt-3">
+  <h2>Private Messages</h2>
+  <div class="list-group" id="privateList">
+    <!-- Private conversation buttons will be populated here -->
+  </div>
+</div>
+
 <!-- Chat Interface Section (Hidden Initially) -->
 <div id="chatContainer" class="container mt-5" style="display:none;">
   <div class="d-flex justify-content-between align-items-center">
     <h2 id="roomName"></h2>
     <div>
       <button id="leaveRoom" class="btn btn-secondary me-2">Leave Room</button>
-      <button id="logoutBtn" class="btn btn-danger">Logout</button>
     </div>
   </div>
   <!-- Messages will appear here -->
